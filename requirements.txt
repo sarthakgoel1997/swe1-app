@@ -16,7 +16,7 @@ distlib==0.3.8
 Django
 docopt==0.6.2
 filelock
-flake8==7.0.0
+flake8
 idna==3.6
 jmespath==1.0.1
 mccabe==0.7.0
