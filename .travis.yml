@@ -1,28 +1,25 @@
 language: python
-
 python:
-  - 3.9
-
+- 3.9
 install:
-  - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script:
-  - black --check .
-  - flake8 --max-line-length=99 .
-  - coverage run manage.py test
-
+- black --check .
+- flake8 --max-line-length=99 .
+- coverage run manage.py test
 after_script:
-  - coveralls
+- coveralls
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: "FzDBtHO20nnn4dgLeT60NSQYUngtllEaJkk4P5pWNb2snY2nvxwSviCAWSD6KetNAHu9xlidZpJRUsKcDC32poLk4L8yBuQ9ookS6P29S93ca1nokze3oUof1qHIPsddloK+4ANlCU1kId9SlVc0UlGZT8+bWVOm0HET6yYHXp1xR9An9kq6QJ2IGmcMBmUkyhe4orR6Bo/rK5tI8WE6/72RwS359nzuHXDCpuzigOvu8sJhG2jH046eJ6A9lu52h8EgY4aBWXMd1oH0b8azWwglzySEcxe70qAvH3nF1Yv+D9kPUpeNndhrmtWIxjYruBIPJoofiCeexsg6MBdfV24wxWoI6UoDpWrgGDaYt8P4o0vmjFDQGezsvCnIFt7JHnCgyxqyRxfA0WDEqt84bHDem+HkDWCSj43DTqP/D1xFHQ1tMQRZlO4BZQMToTVMW/C6LMGdfVC1eL8oAcG1vN1bDOud+t4lzo8rHHkTA1bVuKv/PffjQ0ngaxCt9cKMFCBteVA7/Ouacxrd27K9Jj47W2wo0h9GvywvY3i+xm00o0NShm6qDQ3Jg5O58rTKow8JuB4+3+tKKoCVYIFvEWbKJsMNIs/OlEvXBDIAnM8prkb7VRhCgs5iAsI+fTWOUV1vSRBj6O8UyDzmXjHN5ywusebaRwINxVa8riiBoWE="
+  access_key_id: AKIAZJGPP2SLYSWSGK7C
   secret_access_key:
-    secure: "pyNpwTO0I6fykMXyUL/qU2dfFuRza+3NpwqkzlD8Xgab4DDJANCV3vze60bdtFoA9sSDHTaUWmkI1fy0w0+ngkJBVlDHr0LGQDhac102ZF+OmQ5iPISNSm+1oRJRCcUzQ7pEQWaHNryFhgf4y9kHSQJQdmll/Ab8C97W4fyPvxcWLAwLXHtohQ533HTWC3ekAnybjT1xGsAAyxyh2bHBuepNxx//8tSBwNBfEGuJjzJFpkCOXJQNXNOH9F0nU3/1FPCnf0y+2HESpG4+gaL1hKKUyzAd/7PQV9e6MYArQ0cZ1qf5/6Y9TfMrwlzi3SgfuZoI/L5GqzHXFYPqPSpwuXYF82dM+IU73tTgndN0HZjgSftNspqvDxlibk0mg4EWH9MXoW5cn3+GuX0l2SRHZOuePNmfsb6JVRCmAUYGp0A6p6K/qFD73dN6YmyrsvvW6iwCqi5vhItK7ccfflGzkx+8QLBpZtJjHNqbc64YAhRICydr+tPKKaQ/MW94SI5Uu7JAjhV8MAh2N2ch2Jhu0XuqMPSlXPpWZsUZXnHoqaJkfPJAfY6cBc+H+g+DbZamNFoYAhu1btCaTBQO7Zlo2N8cxJMc/XROV3bVEJYAJHxA+ofAcjDo+hhAso31WZLD8Te50SAOCNpNXe4Bfc/x2iyDu1ZpTsn1u3IDUVVz0V0="
-  region: "us-west-2"
-  app: "swe1-app"
-  env: "django-env"
-  bucket_name: "elasticbeanstalk-us-west-2-638237791383"
+    secure: fUMNqlACXj2CQDnWGXIrcGtQYpdxejQHmLZyMgwqa2OYs9Z+yh959l1kMF7y8Hvn1gN0xmPKJ+HFL/Zy2ikGdc18eHKuOMLY+TAwy4icu6FnwcFRTN50XgLpwytmaBuILjs5UXuyJ6KT2Llx7ypgQIoheQtJMopqeISs0/26NekT8LpnG0ho4x8eElHgZLQveXz8atsWDpAJxTfVljIIj/n4Zvk8C8DxSxCnZCTH330LTid1HXH6CYm+vYfft2O4WEG9aqTRrOhX1YdA935aY8I4vi0EMBJ6UEYam+HCJf1kkH7iPaNtaMnWFHhNX+GNI6sh//fWXNp5oKYBn2pJOlXIwBz6rudei2IR1dadg6CRuEBV4s+IAAXmYXtrBtDYpUGsBMH3B/s2/Z2bS4VE8wgWEzOogyjAs0D0aoy2o7V0MAEImbuEtto1RQHHzUhFcRzbBO4VX8IttaHCgWJBidM+RZs3CT9v1zXv0HY2u1Eye8ic39WKHmI3PePE43RwqK38TzraGsMfOY1nyY/YimjR3MGrEn0dAa0vUpdchKntdN2+UCjNhxG3+a2kOQBcj9JRKRlthmMVwSNS9/E/DKtW/+5fqxJzIOPl+02fqSM9w72IPlx9qdnmveyUuqF9yymo8wDPfknAIm/feuL7WcMGoyncq0mhPI/n9RHtRhI=
+  region: us-west-2
+  app: swe1-app
+  env: django-env
+  bucket_name: elasticbeanstalk-us-west-2-638237791383
   on:
+    repo: sarthakgoel1997/swe1-app
     branch: main
+  skip_cleanup: 'true'
