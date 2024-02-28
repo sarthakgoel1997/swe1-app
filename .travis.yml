@@ -3,6 +3,12 @@ language: python
 python:
   - 3.9
 
+install:
+  - pip install -r requirements.txt
+
+script:
+  - black --check .
+
 deploy:
   provider: elasticbeanstalk
   access_key_id:
