@@ -15,7 +15,7 @@ cryptography==42.0.4
 distlib==0.3.8
 Django
 docopt==0.6.2
-filelock==3.13.1
+filelock
 flake8==7.0.0
 idna==3.6
 jmespath==1.0.1
