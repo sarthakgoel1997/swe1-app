@@ -9,6 +9,10 @@ install:
 script:
   - black --check .
   - flake8 --max-line-length=99 .
+  - coverage run manage.py test
+
+after_script:
+  - coveralls
 
 deploy:
   provider: elasticbeanstalk
